@@ -1,22 +1,20 @@
 #!/bin/bash
-# Script: icon.sh
-# Purpose: Generate a .desktop file with user-selected script and icon using Zenity.
 
-# Prompt the user to select a script file
+# Tell the user to select a script file
 script_file=$(zenity --file-selection --title="Select a Script File" --file-filter="*.sh" --text="Choose a script to associate with the desktop icon.")
 if [ -z "$script_file" ]; then
     zenity --error --text="No script selected. Exiting."
     exit 1
 fi
 
-# Prompt the user to select an icon image
+# Tell the user to select an icon image
 icon_file=$(zenity --file-selection --title="Select an Icon Image" --file-filter="*.png *.jpg *.svg" --text="Choose an icon for the desktop shortcut.")
 if [ -z "$icon_file" ]; then
     zenity --error --text="No icon selected. Exiting."
     exit 1
 fi
 
-# Prompt the user to enter a name for the desktop shortcut
+# Tell the user to enter a name for the desktop shortcut
 shortcut_name=$(zenity --entry --title="Shortcut Name" --text="Enter a name for the desktop shortcut:")
 if [ -z "$shortcut_name" ]; then
     zenity --error --text="No shortcut name provided. Exiting."
